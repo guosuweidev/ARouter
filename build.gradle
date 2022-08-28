@@ -1,6 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.4.10'
-    ext.arouter_register_version = '1.0.2'
+    ext {
+        compileSdkVersion = 31
+        buildToolsVersion = "30.0.3"
+        minSdkVersion = 14
+        targetSdkVersion = 28
+        kotlin_version = '1.7.10'
+        arouter_register_version = '1.0.2'
+    }
 
     repositories {
         mavenCentral()
@@ -8,8 +14,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.android.tools.build:gradle:7.2.2'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.alibaba:arouter-register:$arouter_register_version"

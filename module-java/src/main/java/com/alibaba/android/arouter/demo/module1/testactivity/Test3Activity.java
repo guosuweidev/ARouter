@@ -1,8 +1,9 @@
 package com.alibaba.android.arouter.demo.module1.testactivity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.demo.module1.R;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -36,7 +37,7 @@ public class Test3Activity extends AppCompatActivity {
 
         String params = String.format("name=%s, age=%s, girl=%s, high=%s", name, age, girl, high);
 
-        ((TextView)findViewById(R.id.test)).setText("I am " + Test3Activity.class.getName());
-        ((TextView)findViewById(R.id.test2)).setText(params);
+        ((TextView) findViewById(R.id.test)).setText("I am " + Test3Activity.class.getName());
+        ((TextView) findViewById(R.id.test2)).setText(params);
     }
 }

@@ -1,33 +1,35 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation project(':arouter-annotation')
     implementation project(':arouter-api')
-    annotationProcessor project(':arouter-compiler')
+    kapt project(':arouter-compiler')
 
     implementation project(':module-java-export')
 
-    implementation "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.alibaba:fastjson:1.2.48'
 }
 android {
-    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
-    buildToolsVersion BUILDTOOLS_VERSION
+    compileSdk project.compileSdkVersion
+    buildToolsVersion project.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
+        minSdk project.minSdkVersion
+        targetSdk project.targetSdkVersion
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {

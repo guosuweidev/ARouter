@@ -1,22 +1,22 @@
-apply plugin: 'java'
-
-compileJava {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
-}
+apply plugin: 'java-library'
 
 dependencies {
-    implementation 'com.alibaba:arouter-annotation:1.0.6'
+    implementation 'io.github.guosuweidev:arouter-annotation:1.0.7'
 
-    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc7'
-    compileOnly 'com.google.auto.service:auto-service-annotations:1.0-rc7'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0.1'
+    compileOnly 'com.google.auto.service:auto-service-annotations:1.0.1'
 
-    implementation 'com.squareup:javapoet:1.8.0'
+    implementation 'com.squareup:javapoet:1.13.0'
 
-    implementation 'org.apache.commons:commons-lang3:3.5'
-    implementation 'org.apache.commons:commons-collections4:4.1'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'org.apache.commons:commons-collections4:4.4'
 
-    implementation 'com.alibaba:fastjson:1.2.69'
+    implementation 'com.alibaba:fastjson:1.2.75'
 }
 
-apply from: rootProject.file('gradle/publish.gradle')
+apply from: rootProject.file('gradle/publicate.gradle')
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
